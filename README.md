@@ -1,56 +1,52 @@
 # Corticomuscular Coherence Analysis Using Wavelet Coherence Method Based on Leg Movements
 
-[cite_start]This repository contains the MATLAB code and research documentation for analyzing the functional connection between the motor cortex and leg muscles during various autonomous movements[cite: 1, 32]. [cite_start]This project was submitted in partial fulfillment of the requirements for the award of the degree of B.Tech in Instrumentation and Control Engineering at the National Institute of Technology, Tiruchirappalli[cite: 4, 5, 7, 16].
+This repository contains the MATLAB implementation and research findings for a final year project analyzing the functional connection between the human brain and muscles during various leg movements. This work was submitted in partial fulfillment of the requirements for the degree of Bachelor of Technology in Instrumentation and Control Engineering at the National Institute of Technology, Tiruchirappalli.
 
 ## Authors
-* [cite_start]**Basith Mohamed** [cite: 9]
-* [cite_start]**Varsha Raju**  [cite: 10]
-* [cite_start]**Project Guide:** Dr. N Sivakumaran [cite: 24, 25]
+* **Basith Mohamed** 
+* **Varsha Raju** 
+* **Project Guide:** Dr. N Sivakumaran
 
 ---
 
 ## Project Overview
-[cite_start]The interaction between brain activity (EEG) and muscle movement (EMG) can be expressed through **corticomuscular coherence**[cite: 33, 65]. [cite_start]While traditional frequency-domain methods like Magnitude Square Coherence (MSC) are limited by frequency resolution and struggle with non-stationary signals, this project utilizes **Wavelet Coherence**[cite: 71, 78].
+The interaction between motor cortex activity and muscle movement is expressed through the coherence between Electroencephalogram (EEG) and Electromyogram (EMG) signals. While traditional methods like Magnitude Square Coherence (MSC) are limited by frequency resolution and non-linear characteristics, this project utilizes **Wavelet Coherence** to reflect time-frequency local and instantaneous characteristics of non-stationary signals.
 
-
-
-[cite_start]Wavelet coherence detects common time-localized oscillations in non-stationary signals, providing a more accurate reflection of the time-frequency local characteristics of EEG-EMG signals[cite: 82, 85].
-
-### Key Objectives
-* [cite_start]Examine the functional connection between the brain and muscles during walking, ramp ascent/descent, and stair ascent/descent[cite: 32, 131].
-* [cite_start]Analyze coherence characteristics across different frequency bands: Alpha (8-14 Hz), Beta (14-30 Hz), and Gamma (30-50 Hz)[cite: 316].
-* [cite_start]Quantify the coupling relationship using a metric called the Coherence Significant Area ($A_{coh}$)[cite: 37, 406].
+### Key Features
+* **Activity Mapping:** Analysis of EEG-EMG coupling during level walking, ramp ascent/descent, and stair ascent/descent.
+* **Frequency Band Analysis:** Comparison of coherence across Alpha (8-14 Hz), Beta (14-30 Hz), and Gamma (30-50 Hz) bands.
+* **Quantitative Metrics:** Uses the Coherence Significant Area ($A_{coh}$) to provide a quantifiable metric for comparing different muscle-cortex pairs.
 
 ---
 
 ## Dataset & Methodology
 ### Data Source
-[cite_start]The research uses the "Full body mobile brain-body imaging data during unconstrained locomotion on stairs, ramps, and level ground" dataset[cite: 121, 502, 503]. [cite_start]Subjects were instrumented with 17 wireless inertial measurement units (IMUs) for full-body motion capture[cite: 122, 123].
+The study utilizes the "Full body mobile brain-body imaging data during unconstrained locomotion on stairs, ramps, and level ground" dataset. Subjects were instrumented with 17 wireless inertial measurement units (IMUs) for full-body motion capture.
 
 ### Channels & Muscle Groups
-* [cite_start]**EEG Channels:** C1, C2, and Cz[cite: 301].
-* [cite_start]**EMG Muscle Groups:** Tibialis anterior (TA), medial gastrocnemius (GAST), vastus lateralis (VL), rectus femoris (RF), semitendinosus (SEM), and biceps femoris longus (BFL)[cite: 301, 448].
+* **EEG Channels:** C1, C2, and Cz.
+* **EMG Muscle Groups:** Tibialis anterior (TA), medial gastrocnemius (GAST), vastus lateralis (VL), rectus femoris (RF), semitendinosus (SEM), and biceps femorus longus (BFL).
 
 ### Processing Workflow
-1. [cite_start]**Pre-processing:** Synchronization of EEG and EMG signals followed by de-noising[cite: 312].
-2. [cite_start]**Activity Segmentation:** Kinetics and accelerometer data are used to map motion paths and split data into distinct activities along the Z-axis[cite: 305, 306, 307].
-3. [cite_start]**Normalization:** EMG burst points are used to normalize signals and derive sampled EEG by multiplying the normalized EMG signal[cite: 312].
-4. [cite_start]**Coherence Analysis:** Calculation of the $A_{coh}$ metric to quantify the significant area of coherence above a threshold[cite: 407, 409].
+1. **Pre-processing:** Synchronization of EEG and EMG signals followed by de-noising and selecting appropriate channels.
+2. **Activity Segmentation:** Kinetics and accelerometer data are used to map motion paths and split data into distinct activities along the Z-axis.
+3. **Signal Representation:** EMG burst points are used to normalize signals and derive sampled EEG data.
+4. **Coherence Calculation:** Execution of Wavelet Coherence and aggregation of values to generate comparative plots.
 
 ---
 
 ## Key Results
-* [cite_start]**Frequency Dominance:** The Alpha band demonstrated higher levels of significant coherence than the Beta band across all activities, including level walking, ramp descent, and stair ascent[cite: 416, 417, 469].
-* [cite_start]**Significant Muscle Pairs:** Analysis revealed that the **TA-C2** and **VL-C2** pairs exhibited the highest levels of significant coherence[cite: 449, 477].
-* [cite_start]**Activity Metrics:** For Stair Ascent, the average aggregated $A_{coh}$ was approximately **0.885** for the Alpha band compared to **0.717** for the Beta band[cite: 464, 468].
+* **Alpha Band Dominance:** Coherence in the Alpha band was found to be significantly higher than in the Beta band across all tested activities (Ramp, Stairs, and Level Walking).
+* **Significant Muscle Pairs:** Analysis revealed that the **C2-TA** (Tibialis Anterior) and **C2-VL** (Vastus Lateralis) pairs demonstrated the highest levels of significant coherence.
+* **Quantifiable Comparison:** The research provides average aggregated values of $A_{coh}$ for different activities, showing that Alpha band coherence consistently outperforms Beta band coherence in terms of significance.
 
 ---
 
 ## Future Scope
-This framework establishes a method for studying brain-muscle communication that can be extended to:
-* [cite_start]**Brain-Computer Interfaces (BCI):** Controlling prostheses for patients with physical limitations[cite: 482, 483].
-* [cite_start]**Movement Prediction:** Utilizing enhanced coherence metrics to predict limb movement intentions[cite: 484].
-* [cite_start]**Functional Networking:** Constructing cortex-muscle functional networks to further reflect nerve control over muscles[cite: 485, 486].
+This framework sets a foundation for future Brain-Computer Interface (BCI) development, offering potential pathways for:
+* **Prosthetic Control:** Developing means of controlling prostheses for patients with physical limitations.
+* **Movement Prediction:** Utilizing enhanced coherence metrics to predict limb movement intentions.
+* **Nerve Research:** Revealing more detailed mechanisms regarding how nerves control muscles through functional networks.
 
-## References
-[cite_start]Please see the full [thesis draft](FYPThesisDraft%20(1).pdf) for the complete list of references and detailed literature review[cite: 490].
+## Repository Link
+[Corticomuscular Coherence Analysis - GitHub](https://github.com/basithxd/Corticomuscular-Coherence-Analysis-Using-Wavelet-Coherence-Method-Based-On-Leg-Movements)
